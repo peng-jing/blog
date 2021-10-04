@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
 import { AuthContext } from "../../contexts";
 import { createPost } from "../../WebAPI";
 // import { CKEditor } from "@ckeditor/ckeditor5-react";

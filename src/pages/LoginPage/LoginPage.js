@@ -16,6 +16,7 @@ export default function LoginPage() {
   const [errorMsg, setErrorMsg] = useState();
   const history = useHistory();
   const { setUser } = useContext(AuthContext);
+  
   const tokenCheck = (data) => {
     setAuthToken(data.token);
     getMe().then((response) => {
