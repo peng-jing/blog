@@ -8,7 +8,8 @@ export default function Register() {
   const [nickname, setNickname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleRegisterSubmit = () => {
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
     register(nickname, username, password).then((data) => {
       if (data.ok === 0) {
         return setErrorMsg(data.message);
@@ -39,7 +40,7 @@ export default function Register() {
       />
       <ErrorMsg>{errorMsg}</ErrorMsg>
       <SubmitBtn>
-        登入
+        註冊
         <FaArrowRight />
       </SubmitBtn>
     </Form>

@@ -8,12 +8,12 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const { errorMsg, setErrorMsg, tokenCheck } = useContext(Message);
   const handleLoginSubmit = (e) => {
+    e.preventDefault();
     setErrorMsg(null);
     login(username, password).then((data) => {
       if (data.ok === 0) {
         return setErrorMsg(data.message);
       }
-      console.log(data);
       tokenCheck(data);
     });
   };

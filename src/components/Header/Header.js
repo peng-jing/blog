@@ -26,18 +26,18 @@ const Nav = styled.div`
   justify-content: space-between;
 `;
 const NavMenu = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  & div {
+  display: none;
+  ${MEDIA_QUERY_MD} {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     position: relative;
-  }
-  ${MEDIA_QUERY_MD} {
-    display: none;
+    & div {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
   }
 `;
 
@@ -75,11 +75,12 @@ const NavLink = styled(Link)`
     }`}
 `;
 const MobileIcon = styled.div`
-  display: none;
+  display: block;
+  transform: translateX(-100%) scale(1.5);
+  cursor: pointer;
+
   ${MEDIA_QUERY_MD} {
-    display: block;
-    transform: translateX(-100%) scale(1.5);
-    cursor: pointer;
+    display: none;
   }
 `;
 const Bars = styled(FaBars)`
@@ -115,6 +116,7 @@ export default function Header() {
     if (location.pathname !== "/") {
       history.push("/");
     }
+    trigger();
   };
   const trigger = () => {
     setIsOpen(!isOpen);

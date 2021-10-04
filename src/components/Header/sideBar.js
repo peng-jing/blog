@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { MEDIA_QUERY_MD } from "../../constants";
 const SiderBarContainer = styled.div`
   position: fixed;
-
   width: 100%;
   height: 100%;
   background: #fff;
@@ -14,6 +14,9 @@ const SiderBarContainer = styled.div`
   transition: 0.3s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
   top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  ${MEDIA_QUERY_MD} {
+    display: none;
+  }
 `;
 const SiderWrapper = styled.div`
   height: 100%;
@@ -75,7 +78,7 @@ export default function SiderBar({
             </SiderBarLink>
           )}
           {token && user && (
-            <SiderBarLink onClick={trigger} to="/" onClick={handleLogout}>
+            <SiderBarLink to="/" onClick={handleLogout}>
               登出
             </SiderBarLink>
           )}
