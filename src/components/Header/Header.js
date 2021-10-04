@@ -125,7 +125,7 @@ export default function Header() {
     <>
       <NavBarWrapper>
         <Nav>
-          <Brand onClick={trigger} to={"/"}>
+          <Brand to={"/"}>
             Janet's <br /> Blog!
           </Brand>
 
